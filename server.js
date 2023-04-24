@@ -3,6 +3,7 @@ import colors from "colors";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import connectDB from "./config/db.js";
+import testRoutes from "./routes/testRoutes.js";
 
 import cors from "cors";
 
@@ -15,6 +16,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
+
+app.use("/api/v1/test", testRoutes);
 
 app.get("/", (req, res) => {
   res.send("<h1>Welcome to ecommerce app</h1>");
